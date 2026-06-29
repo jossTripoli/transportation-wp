@@ -17,6 +17,8 @@ I will begin by first building the UI locally with astro following their "Get St
 
 First I set up the project using `npx create astro@latest`. I set it up with a git repository, react, and tailwind css by installing using the terminal and then adding to asto.config.mjs. I created a global style sheet at src/styles and imported tailwind.
 
+To create the data mockup data I created a typescript file at data/mock.tc and used codex giving it the extracted text from the figma to quickly create this with out having to manually copy and paste everything. I reviewed the data it generated and found it used the same lorem ipsum so reprompted to fix this. 
+
 ## Suggested Improvements
 
 For the implementation, I prioritized matching the provided Figma mockup as closely as possible because the goal of the assignment is to translate the approved design into a working headless WordPress component.
