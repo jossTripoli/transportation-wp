@@ -29,8 +29,8 @@ export default function MobileAccordion({
           <div
             key={subcategory.label}
             className={[
-              "border-b border-[#272727]",
-              isOpen ? "bg-[#121212]" : "bg-black",
+              "border-b border-neutral-800",
+              isOpen ? "bg-neutral-900" : "bg-black",
             ].join(" ")}
           >
             <h2>
@@ -55,7 +55,7 @@ export default function MobileAccordion({
                   />
                 )}
 
-                <span className="text-[0.82rem] font-bold uppercase leading-6 tracking-[0.18em]">
+                <span className="text-xs font-bold uppercase leading-6 tracking-widest">
                   {subcategory.label}
                 </span>
               </button>
@@ -73,11 +73,11 @@ export default function MobileAccordion({
                   <img
                     src={subcategory.image}
                     alt={subcategory.imageAlt || ""}
-                    className="mb-7 aspect-[16/10] w-full object-cover"
+                    className="mb-7 aspect-video w-full object-cover"
                   />
                 )}
 
-                <h3 className="text-2xl font-light leading-tight tracking-[-0.04em] text-white">
+                <h3 className="text-2xl font-light leading-tight tracking-tight text-white">
                   {subcategory.heading}
                 </h3>
 

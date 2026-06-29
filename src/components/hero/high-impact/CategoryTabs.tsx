@@ -15,7 +15,7 @@ export default function CategoryTabs({
     <div
       role="tablist"
       aria-label="Transportation service categories"
-      className="mx-auto mb-10 flex max-w-fit flex-wrap items-center justify-center gap-3 rounded-none lg:mb-16 lg:rounded-full lg:border lg:border-[#3c3c3c] lg:bg-[#111] lg:px-6 lg:py-3"
+      className="mx-auto mb-8 flex max-w-fit flex-wrap items-center justify-center gap-3 lg:mb-10 lg:rounded-full lg:border lg:border-neutral-700 lg:bg-neutral-950 lg:px-6 lg:py-3"
     >
       {categories.map((category, index) => {
         const isActive = index === activeCategoryIndex;
@@ -30,12 +30,12 @@ export default function CategoryTabs({
             id={`category-tab-${index}`}
             onClick={() => onCategoryClick(index)}
             className={[
-              "group relative flex min-h-10 items-center gap-2 rounded-full border px-6 py-2 text-xs font-normal uppercase tracking-[0.12em] transition duration-200",
+              "group relative flex min-h-10 items-center gap-2 rounded-full border px-6 py-2 text-xs font-normal uppercase tracking-widest transition duration-200",
               "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b7b86b]",
-              "lg:border-0 lg:px-3 lg:py-0",
+              "lg:border-0 lg:px-3",
               isActive
                 ? "border-[#b7b86b] text-[#b7b86b]"
-                : "border-[#3c3c3c] text-white hover:text-[#b7b86b]",
+                : "border-neutral-700 text-white hover:text-[#b7b86b]",
             ].join(" ")}
           >
             {category.icon && (

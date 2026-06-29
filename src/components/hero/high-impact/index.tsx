@@ -32,9 +32,9 @@ export default function TransportationSection({
   return (
     <section
       aria-labelledby="transportation-heading"
-      className="min-h-screen bg-black px-4 py-10 text-white sm:px-6 lg:px-8 lg:py-12 xl:py-14"
+      className="min-h-screen bg-black px-4 py-10 text-white sm:px-6 lg:px-8 lg:py-12"
     >
-      <div className="mx-auto max-w-[1320px]">
+      <div className="mx-auto max-w-7xl">
         <div className="hidden lg:block">
           <CategoryTabs
             categories={data.categories}
@@ -48,7 +48,7 @@ export default function TransportationSection({
           role="tabpanel"
           aria-labelledby={`category-tab-${activeCategoryIndex}`}
         >
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 xl:gap-14">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
             <div>
               <HeroHeading category={activeCategory} />
 
