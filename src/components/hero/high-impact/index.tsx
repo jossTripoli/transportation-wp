@@ -32,10 +32,9 @@ export default function TransportationSection({
   return (
     <section
       aria-labelledby="transportation-heading"
-      className="bg-black px-4 py-12 text-white sm:px-6 lg:px-8 lg:py-20"
+      className="min-h-screen bg-black px-4 py-10 text-white sm:px-6 lg:px-8 lg:py-12 xl:py-14"
     >
-      <div className="mx-auto max-w-[1512px]">
-        {/* Desktop category tabs */}
+      <div className="mx-auto max-w-[1320px]">
         <div className="hidden lg:block">
           <CategoryTabs
             categories={data.categories}
@@ -49,13 +48,10 @@ export default function TransportationSection({
           role="tabpanel"
           aria-labelledby={`category-tab-${activeCategoryIndex}`}
         >
-          {/* Main responsive layout */}
-          <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16 xl:gap-20">
-            {/* Left / hero column */}
+          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 xl:gap-14">
             <div>
               <HeroHeading category={activeCategory} />
 
-              {/* Mobile category tabs */}
               <div className="mt-8 lg:hidden">
                 <CategoryTabs
                   categories={data.categories}
@@ -64,7 +60,6 @@ export default function TransportationSection({
                 />
               </div>
 
-              {/* Desktop subcategory tabs */}
               <DesktopSubcategoryTabs
                 subcategories={activeCategory.subcategories}
                 activeSubcategoryIndex={activeSubcategoryIndex}
@@ -72,7 +67,6 @@ export default function TransportationSection({
               />
             </div>
 
-            {/* Desktop right-side content */}
             <DesktopContentPanel
               subcategory={activeSubcategory}
               primaryCta={data.primaryCta}
@@ -80,7 +74,6 @@ export default function TransportationSection({
             />
           </div>
 
-          {/* Mobile accordion content */}
           <MobileAccordion
             categoryIndex={activeCategoryIndex}
             subcategories={activeCategory.subcategories}

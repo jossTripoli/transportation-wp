@@ -68,7 +68,15 @@ export default function MobileAccordion({
               hidden={!isOpen}
               className="px-4 pb-7"
             >
-              <div className="min-h-[315px] pt-48">
+              <div className="pt-2">
+                {subcategory.image && (
+                  <img
+                    src={subcategory.image}
+                    alt={subcategory.imageAlt || ""}
+                    className="mb-7 aspect-[16/10] w-full object-cover"
+                  />
+                )}
+
                 <h3 className="text-2xl font-light leading-tight tracking-[-0.04em] text-white">
                   {subcategory.heading}
                 </h3>
@@ -77,7 +85,10 @@ export default function MobileAccordion({
                   {subcategory.body}
                 </p>
 
-                <CtaButtons primaryCta={primaryCta} secondaryCta={secondaryCta} />
+                <CtaButtons
+                  primaryCta={primaryCta}
+                  secondaryCta={secondaryCta}
+                />
               </div>
             </div>
           </div>
