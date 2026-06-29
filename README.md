@@ -15,9 +15,13 @@ I will begin by first building the UI locally with astro following their "Get St
 
 ## Building the UI
 
-First I set up the project using `npx create astro@latest`. I set it up with a git repository, react, and tailwind css by installing using the terminal and then adding to asto.config.mjs. I created a global style sheet at src/styles and imported tailwind.
+First I set up the project. I read in their documentation astro supports npm, pnpm, and yarn. I'm choosing to use pnpm as my package manager as it offers the fastest insallation speeds. So I ran in the terminal `pnpm create astro@latest` and `pnpm install`. I set it up with a git repository, react, and tailwind css by installing using the terminal again (`pnpm add @astrojs/react react react-dom tailwindcss @tailwindcss/vite`) then adding to asto.config.mjs. In interesting discovery I had was that Astro is built on top of Vite by Evan You who also built Vue.js. And because of this they have features like hot reload and production build optimization which sounds great. Because I'm realising the there's going to be a lot of frontend dependencies I will note that they will need to be updated regularly, and dependency scans should be part of the development workflow. Pnpm includes an audit command that can be used alongside GitHub security alerts to help identify newly discovered vulnerabilities in frontend dependencies.
 
-To create the data mockup data I created a typescript file at data/mock.tc and used codex giving it the extracted text from the figma to quickly create this with out having to manually copy and paste everything. I reviewed the data it generated and found it used the same lorem ipsum so reprompted to fix this. 
+After getting react / tailwind installed I created a global style sheet at src/styles and imported tailwind.
+
+To create the data mockup data I created a typescript file at data/mock.tc and used codex giving it the extracted text from the figma to quickly create this with out having to manually copy and paste everything. I reviewed the data it generated and found it used the same lorem ipsum so reprompted to fix this.
+
+Next I ran it in development mode using `pnpm dev` and went to `http://localhost:4321/` and can see that everything was installed correctly as the astro greeting page loaded with no errors in the inspect element web browser terminal or vs code dev terminal. 
 
 ## Suggested Improvements
 
