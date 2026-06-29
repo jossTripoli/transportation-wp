@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import TransportationTabs from "../components/TransportationTabs";
+import TransportationSection from "../components/hero/high-impact";
 import { transportationMock } from "../data/mock";
 ---
 
@@ -16,7 +16,7 @@ import { transportationMock } from "../data/mock";
 
   <body>
     <main>
-      <TransportationTabs data={transportationMock} client:load />
+      <TransportationSection data={transportationMock} client:load />
     </main>
   </body>
 </html>

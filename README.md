@@ -23,7 +23,79 @@ To create the data mockup data I created a typescript file at data/mock.tc and u
 
 Next I ran it in development mode using `pnpm dev` and went to `http://localhost:4321/` and can see that everything was installed correctly as the astro greeting page loaded with no errors in the inspect element web browser terminal or vs code dev terminal. 
 
-Now to start developing the UI I went to the default starter page at src/pages/index.astro. I noticed my IDE didn't have sytax highlighting so I installed the official astro vs code IDE extension. I'm starting with updating the global styling to use the provided font. I added the static resources including the font files to public/fonts and then the images to public/images (I renamed folder as this is the standard naming convention istead of 'images-and-icons').
+Now to start developing the UI I went to the default starter page at src/pages/index.astro. I noticed my IDE didn't have sytax highlighting so I installed the official astro vs code IDE extension. I'm starting with updating the global styling to use the provided font. I added the static resources including the font files to public/fonts and then the images to public/images (I renamed folder as this is the standard naming convention istead of 'images-and-icons'). I also removed all the astro welcome page stuff.
+
+I split the Figma into focused components based on each feature so it will be easy to scale, reuse, and integrate to wordpress ACF. I created a folder I'm calling hero/impact since this is the standard way to describe the main landing page with call the actions and sets it up so later the medium and low impact pages and be added cleanly. I created a types.ts with structure of what data will be used on the page. Then I created an outline for each one and then used agentic ai to generate an initial prototype of each feature which I then cleaned up.
+
+### `TransportationSection.tsx`
+
+This is the main parent component for the entire homepage section. It owns the interactive state for:
+
+- the active main category tab
+- the active subcategory / open accordion item
+
+It also decides which layout pieces render on desktop versus mobile. I kept the state here because the category tabs, desktop panel, and mobile accordion all need to stay synchronized. When the user switches from `Experience` to `We Care` or `Safety`, the active subcategory resets to the first item in that category so the UI never shows mismatched content.
+
+### `CategoryTabs.tsx`
+
+This component renders the top-level category tabs:
+
+- `Experience`
+- `We Care`
+- `Safety`
+
+These are buttons rather than links because they change content inside the same page instead of navigating to separate pages. I separated this component because the same category tab UI is used in both desktop and mobile placements, but the behavior is shared.
+
+### `HeroHeading.tsx`
+
+This component renders the high-impact heading and intro copy from the mockup:
+
+- `THE ABC`
+- `Transportation`
+- active category label such as `EXPERIENCE`, `WE CARE`, or `SAFETY`
+- the short intro paragraph
+
+I separated this as its own component because it is the main brand/message area of the design. It is also likely to be directly mapped to editable ACF fields later. Keeping it isolated makes it easier to preserve the typography, font choices, spacing, and responsive alignment.
+
+### `DesktopSubcategoryTabs.tsx`
+
+This component renders the left-side desktop subcategory list. On desktop, the subcategories behave like vertical tabs. Selecting one updates the active content on the right side of the section.
+
+For example, under `Experience`, the desktop subcategory tabs are:
+
+- `Comprehensive Driver Clearances`
+- `Real-Time GPS Tracking & Monitoring`
+- `In-House Maintenance & Safety Options`
+- `Wheelchair-Accessible Vehicles`
+
+I separated this from the main category tabs because it is a different level of navigation. The category tabs switch the whole content group, while the subcategory tabs switch the content within that group.
+
+### `DesktopContentPanel.tsx`
+
+This component renders the desktop active content area:
+
+- the active subcategory image
+- the active subcategory heading
+- the active subcategory body text
+- the CTA buttons
+
+This maps directly to the right side of the desktop Figma mockup. I kept it separate so the content presentation is not mixed with the tab navigation logic. It also makes the later WordPress integration cleaner because each subcategory can provide its own image, alt text, heading, and body copy.
+
+### `MobileAccordion.tsx`
+
+This component renders the mobile version of the subcategories. On mobile, the brief says the subcategories should become accordions, so the desktop vertical tab list is replaced with a stacked accordion layout.
+
+Only one accordion item is open at a time. This keeps the mobile experience focused and prevents the page from becoming too long or visually overwhelming. The open accordion item shows the heading, body text, and CTA buttons close together so users can take action after reading the relevant content.
+
+### `CtaButtons.tsx`
+
+This component renders the two reusable conversion links:
+
+- `Get a Quote`
+- `Book Online`
+
+I separated the CTA buttons because they appear in both the desktop content panel and the mobile accordion. The brief also states that these links should be the same throughout the component, so they should be stored once in the data model and reused everywhere. This will make the ACF setup simpler because the client only needs to update each CTA link in one place.
+
 
 ## Suggested Improvements
 

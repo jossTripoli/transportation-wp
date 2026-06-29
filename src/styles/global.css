@@ -54,13 +54,13 @@
   font-display: swap;
 }
 
-@theme {
-  --font-sans: "Euclid Circular B", system-ui, sans-serif;
+:root {
   --font-serif: "Libre Baskerville", Georgia, serif;
+  --font-sans: "Euclid Circular B", Arial, sans-serif;
 }
 
 html {
-  font-family: "Euclid Circular B", system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 body {
