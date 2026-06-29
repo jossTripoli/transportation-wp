@@ -1,4 +1,5 @@
 import type { Subcategory } from "./types";
+import { getMediaUrl } from "./media";
 
 type DesktopSubcategoryTabsProps = {
   subcategories: readonly Subcategory[];
@@ -15,6 +16,7 @@ export default function DesktopSubcategoryTabs({
     <div className="mt-8 hidden max-w-md lg:block">
       {subcategories.map((subcategory, index) => {
         const isActive = index === activeSubcategoryIndex;
+        const iconUrl = getMediaUrl(subcategory.icon);
 
         return (
           <button
@@ -30,9 +32,9 @@ export default function DesktopSubcategoryTabs({
                 : "bg-transparent text-white hover:bg-neutral-900 hover:text-[#b7b86b]",
             ].join(" ")}
           >
-            {subcategory.icon && (
+            {iconUrl && (
               <img
-                src={subcategory.icon}
+                src={iconUrl}
                 alt=""
                 aria-hidden="true"
                 className="h-7 w-7 shrink-0 object-contain"

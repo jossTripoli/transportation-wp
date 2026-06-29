@@ -1,4 +1,5 @@
 import type { Category } from "./types";
+import { getMediaUrl } from "./media";
 
 type CategoryTabsProps = {
   categories: readonly Category[];
@@ -19,6 +20,7 @@ export default function CategoryTabs({
     >
       {categories.map((category, index) => {
         const isActive = index === activeCategoryIndex;
+        const iconUrl = getMediaUrl(category.icon);
 
         return (
           <button
@@ -38,9 +40,9 @@ export default function CategoryTabs({
                 : "border-neutral-700 text-white hover:text-[#b7b86b]",
             ].join(" ")}
           >
-            {category.icon && (
+            {iconUrl && (
               <img
-                src={category.icon}
+                src={iconUrl}
                 alt=""
                 aria-hidden="true"
                 className="h-5 w-5 object-contain"

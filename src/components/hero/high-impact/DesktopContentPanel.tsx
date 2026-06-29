@@ -1,5 +1,6 @@
 import type { Cta, Subcategory } from "./types";
 import CtaButtons from "./CtaButtons";
+import { getMediaAlt, getMediaUrl } from "./media";
 
 type DesktopContentPanelProps = {
   subcategory: Subcategory;
@@ -12,12 +13,15 @@ export default function DesktopContentPanel({
   primaryCta,
   secondaryCta,
 }: DesktopContentPanelProps) {
+  const imageUrl = getMediaUrl(subcategory.image);
+  const imageAlt = getMediaAlt(subcategory.image);
+
   return (
     <article className="hidden lg:block">
-      {subcategory.image && (
+      {imageUrl && (
         <img
-          src={subcategory.image}
-          alt={subcategory.imageAlt || ""}
+          src={imageUrl}
+          alt={imageAlt}
           className="h-80 w-full object-cover xl:h-96"
         />
       )}

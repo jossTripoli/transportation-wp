@@ -1,5 +1,6 @@
 import type { Cta, Subcategory } from "./types";
 import CtaButtons from "./CtaButtons";
+import { getMediaAlt, getMediaUrl } from "./media";
 
 type MobileAccordionProps = {
   categoryIndex: number;
@@ -24,6 +25,9 @@ export default function MobileAccordion({
         const isOpen = index === activeSubcategoryIndex;
         const panelId = `mobile-accordion-panel-${categoryIndex}-${index}`;
         const buttonId = `mobile-accordion-button-${categoryIndex}-${index}`;
+        const iconUrl = getMediaUrl(subcategory.icon);
+        const imageUrl = getMediaUrl(subcategory.image);
+        const imageAlt = getMediaAlt(subcategory.image);
 
         return (
           <div
@@ -46,9 +50,9 @@ export default function MobileAccordion({
                   isOpen ? "text-[#b7b86b]" : "text-white",
                 ].join(" ")}
               >
-                {subcategory.icon && (
+                {iconUrl && (
                   <img
-                    src={subcategory.icon}
+                    src={iconUrl}
                     alt=""
                     aria-hidden="true"
                     className="mt-1 h-7 w-7 shrink-0 object-contain"
@@ -69,10 +73,10 @@ export default function MobileAccordion({
               className="px-4 pb-7"
             >
               <div className="pt-2">
-                {subcategory.image && (
+                {imageUrl && (
                   <img
-                    src={subcategory.image}
-                    alt={subcategory.imageAlt || ""}
+                    src={imageUrl}
+                    alt={imageAlt}
                     className="mb-7 aspect-video w-full object-cover"
                   />
                 )}

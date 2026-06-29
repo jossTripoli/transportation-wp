@@ -1,15 +1,22 @@
 export type Cta = {
   label: string;
   href: string;
+  target?: string | null;
+};
+
+export type MediaImage = {
+  node?: {
+    sourceUrl?: string | null;
+    altText?: string | null;
+  } | null;
 };
 
 export type Subcategory = {
   label: string;
   heading: string;
   body: string;
-  icon?: string;
-  image?: string;
-  imageAlt?: string;
+  icon?: MediaImage | null;
+  image?: MediaImage | null;
 };
 
 export type Category = {
@@ -18,7 +25,7 @@ export type Category = {
   headingAccent: string;
   headingBottom: string;
   intro: string;
-  icon?: string;
+  icon?: MediaImage | null;
   subcategories: readonly Subcategory[];
 };
 
