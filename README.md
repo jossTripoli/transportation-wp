@@ -98,6 +98,12 @@ I separated the CTA buttons because they appear in both the desktop content pane
 
 Next I went through and replaced all the placeholder static assets with the real image and icon assets. 
 
+## Setting Up Wordpress / ACF
+
+Started by making a page and then an ACF Field Group and setting to show it if page equals home. Then I converted my mockup.ts into the acf fields. From the documentation I figured out I could use the type Repeater for the different categories. The rest of the field were straight forward text / image. I noticed I could use format image array for the images and pass alt text in that way instead of having to make additional imagealt fields so I went with that for efficiency. 
+
+Next I created a .env to store the db connection string as well as added to git ignore so it doesn't get exposed. Then I used the ai agent to generate the boiler plate connection code and put it in lib/wordpress. Then normalize. Then updated index.astro to replace the mock data with the real data. 
+
 ## Suggested Improvements
 
 For the implementation, I prioritized matching the provided Figma mockup as closely as possible because the goal of the assignment is to translate the approved design into a working headless WordPress component.
@@ -106,8 +112,8 @@ I will note here my recommendations for a real transportation business website t
 
 - On mobile I would suggest making the CTA buttons visible earlier so user doesn't have to scroll past info / accordian. Especially for returning users who are on the go and just want to quickly book
 
-## WordPress / ACF Structure
-How content is editable from WordPress.
+
+
 
 ## Headless Data Fetching
 How the frontend gets content from WordPress.

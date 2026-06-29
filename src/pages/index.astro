@@ -1,7 +1,22 @@
 ---
 import "../styles/global.css";
-import TransportationSection from "../components/hero/high-impact";
-import { transportationMock } from "../data/mock";
+import TransportationSection from "../components/hero/high-impact/index";
+import { fetchGraphQL } from "../lib/wordpress";
+import { HOME_TRANSPORTATION_QUERY } from "../lib/queries";
+import type { TransportationTabsData } from "../components/hero/high-impact/types";
+
+type HomeTransportationResponse = {
+  page: {
+    title: string;
+    homeHeroSection: TransportationTabsData;
+  };
+};
+
+const data = await fetchGraphQL<HomeTransportationResponse>(
+  HOME_TRANSPORTATION_QUERY
+);
+
+const transportationData = data.page.homeHeroSection;
 ---
 
 <html lang="en">
@@ -16,7 +31,7 @@ import { transportationMock } from "../data/mock";
 
   <body>
     <main>
-      <TransportationSection data={transportationMock} client:load />
+      <TransportationSection data={transportationData} client:load />
     </main>
   </body>
 </html>
