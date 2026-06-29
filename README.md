@@ -1,7 +1,7 @@
 # Approach
 
 ## Stack Choice
-I've mostly used Next.js as my react-based frontend framework but am excited to use Astro for this because it is what you've switched to and because it is SEO-friendly. I'm going to use Tailwind CSS since it it a great system for consistent, scalable css styling classes. I will also be using shadcn/ui or flowbite free component libraries built with tailwind css for making features like the tabs and accordians to efficiently complete these without having to reinvent the wheel. I will be referring to their documentation: 
+I've mostly used Next.js as my react-based frontend framework but am excited to use Astro for this because it is what you've switched to and because it is SEO-friendly. I'm going to use Tailwind CSS since it it a great system for consistent, scalable css styling classes. Because of this choice, I will be using styling everything using a mobile-first approach as that is how the tailwind css is setup and its great for modern web development and prioritizing essential content and functionality. I will also be using shadcn/ui or flowbite free component libraries built with tailwind css for making features like the tabs and accordians to efficiently complete these without having to reinvent the wheel. I will be referring to their documentation: 
 https://docs.astro.build/en/concepts/why-astro/
 https://www.advancedcustomfields.com/resources/
 https://tailwindcss.com/plus/ui-blocks/documentation
@@ -22,6 +22,8 @@ After getting react / tailwind installed I created a global style sheet at src/s
 To create the data mockup data I created a typescript file at data/mock.tc and used codex giving it the extracted text from the figma to quickly create this with out having to manually copy and paste everything. I reviewed the data it generated and found it used the same lorem ipsum so reprompted to fix this.
 
 Next I ran it in development mode using `pnpm dev` and went to `http://localhost:4321/` and can see that everything was installed correctly as the astro greeting page loaded with no errors in the inspect element web browser terminal or vs code dev terminal. 
+
+Now to start developing the UI I went to the default starter page at src/pages/index.astro. I noticed my IDE didn't have sytax highlighting so I installed the official astro vs code IDE extension. I'm starting with updating the global styling to use the provided font. I added the static resources including the font files to public/fonts and then the images to public/images (I renamed folder as this is the standard naming convention istead of 'images-and-icons').
 
 ## Suggested Improvements
 
