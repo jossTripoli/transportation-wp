@@ -1,3 +1,24 @@
+# Transportation Headless WordPress Component
+Live Site: https://transportation-bydd7v5hp-jipodtouch9-gmailcoms-projects.vercel.app/
+
+A responsive transportation website component built with Astro, React, Tailwind CSS, Headless WordPress, Advanced Custom Fields Pro, WPGraphQL, and WPGraphQL for ACF.
+
+## Getting Started
+
+This project uses `pnpm`.
+
+Install dependencies:
+
+`pnpm install`
+
+Run in development mode: 
+
+`pnpm dev`
+
+Navigate in browser to:
+
+`http://localhost:4321/`
+
 # Approach
 
 ## Stack Choice
@@ -17,7 +38,7 @@ I will begin by first building the UI locally with astro following their "Get St
 
 First I set up the project. I read in their documentation astro supports npm, pnpm, and yarn. I'm choosing to use pnpm as my package manager as it offers the fastest insallation speeds. So I ran in the terminal `pnpm create astro@latest` and `pnpm install`. I set it up with a git repository, react, and tailwind css by installing using the terminal again (`pnpm add @astrojs/react react react-dom tailwindcss @tailwindcss/vite`) then adding to asto.config.mjs. In interesting discovery I had was that Astro is built on top of Vite by Evan You who also built Vue.js. And because of this they have features like hot reload and production build optimization which sounds great. Because I'm realising the there's going to be a lot of frontend dependencies I will note that they will need to be updated regularly, and dependency scans should be part of the development workflow. Pnpm includes an audit command that can be used alongside GitHub security alerts to help identify newly discovered vulnerabilities in frontend dependencies.
 
-After getting react / tailwind installed I created a global style sheet at src/styles and imported tailwind.
+After getting react / tailwind installed I created a global style sheet at src/styles and imported tailwind. I created a custom color palette for the site copying the color hex codes from the figma with the black as the primary color, white as the secondary, and gold as the accent color. This way if the palette ever changes then the colors can easily be swapped out throughout the site.
 
 To create the data mockup data I created a typescript file at data/mock.tc and used codex giving it the extracted text from the figma to quickly create this with out having to manually copy and paste everything. I reviewed the data it generated and found it used the same lorem ipsum so reprompted to fix this.
 
@@ -27,9 +48,9 @@ Now to start developing the UI I went to the default starter page at src/pages/i
 
 I split the Figma into focused components based on each feature so it will be easy to scale, reuse, and integrate to wordpress ACF. I created a folder I'm calling hero/impact since this is the standard way to describe the main landing page with call the actions and sets it up so later the medium and low impact pages and be added cleanly. I created a types.ts with structure of what data will be used on the page. Then I created an outline for each one and then used agentic ai to generate an initial prototype of each feature which I then cleaned up. I found that the shadcn / flowbite tabs and accordian components were too far away from what was needed so I pivoted and made custom components for these. Another change I made was making the images have less height / be more rectangle than square. I decided this because then the layout is able to fit the cta buttons on the page without scrolling for a much larger variety of desktop screens.
 
-### `TransportationSection.tsx`
+### `Index.tsx`
 
-This is the main parent component for the entire homepage section. It owns the interactive state for:
+This is the main parent component for the entire high impact hero / homepage section. It owns the interactive state for:
 
 - the active main category tab
 - the active subcategory / open accordion item
@@ -100,9 +121,11 @@ Next I went through and replaced all the placeholder static assets with the real
 
 ## Setting Up Wordpress / ACF
 
-Started by making a page and then an ACF Field Group and setting to show it if page equals home. Then I converted my mockup.ts into the acf fields. From the documentation I figured out I could use the type Repeater for the different categories. The rest of the field were straight forward text / image. I noticed I could use format image array for the images and pass alt text in that way instead of having to make additional imagealt fields so I went with that for efficiency. 
+I started by making a page and then an ACF Field Group and setting to show it if page equals home. Then I converted my mockup.ts into the acf fields. From the documentation I figured out I could use the type Repeater for the different categories. The rest of the field were straight forward text / image. I noticed I could use format image array for the images and pass alt text in that way instead of having to make additional imagealt fields so I went with that as it is a more efficient way of doing it in this setup. 
 
-Next I created a .env to store the db connection string as well as added to git ignore so it doesn't get exposed. Then I used the ai agent to generate the boiler plate connection code and put it in lib/wordpress. Then normalize. Then updated index.astro to replace the mock data with the real data. 
+Next I created a .env to store the db connection string as well as added to git ignore so it doesn't get exposed. Then I used the ai agent to generate the boiler plate connection code and put it in lib/wordpress. Then normalize. Then updated index.astro to replace the mock data with the real data.
+
+Lastly I added a robots.txt and llms.txt in order to improve AEO, GEO, and SEO.
 
 ## Suggested Improvements
 
@@ -110,19 +133,10 @@ For the implementation, I prioritized matching the provided Figma mockup as clos
 
 I will note here my recommendations for a real transportation business website to improve conversions and ui/ux experience.
 
-- On mobile I would suggest making the CTA buttons visible earlier so user doesn't have to scroll past info / accordian. Especially for returning users who are on the go and just want to quickly book
+- I would update the completely black and white colors used in the design to instead be an off-white and off-black shades that complements the accent gold to aviod eye strain and also halation for people with astigmatism.
+- I would add location based information about their service areas to improve seo especially for targeted searches like "transportation in Elkins Park".
+- On mobile I would suggest making the CTA buttons visible earlier so user doesn't have to scroll past info / accordian. Especially for returning users who are on the go and just want to quickly book. Could also make them sticky as well.
 
 
-
-
-## Headless Data Fetching
-How the frontend gets content from WordPress.
-
-## Responsive Behavior
-Tabs on desktop, accordions on mobile.
-
-## SEO Considerations
-Static rendering, semantic HTML, image alt text, headings.
-
-## Assumptions
-Any choices made because the brief left details open.
+## Next steps
+If I had more time I would add features like skeleton loader placeholders for icons and images to avoid the blank spots while loading in on slow networks and reduce percieved waiting times, add favicon and metadata, add some subtle animations, light mode, analytics, and multilingual support. I would add in code documentation as well as make a guide on how to use the admin interface. I would also add more details to the ACF fields like reccomended dimensions and aspect ratio for the images. Also add better fallback behavior for default stuff to show if the field isn't filled out. I would consider using ACF Flexible Content if the homepage eventually needs multiple editable sections, such as hero, transportation tabs, testimonials, FAQs, and service areas. I would also set up a CI/CD workflow using github actions for easy deployments despite the headless setup. I would test the site across many different web browsers and devices sizes to ensure compatibility of all features used especially since astro is a newer framework. Lastly, I would write test cases using tools like vitest, react testing library, and playwright to ensure quality assurance. 

@@ -46,8 +46,8 @@ export default function MobileAccordion({
                 onClick={() => onSubcategoryClick(index)}
                 className={[
                   "flex w-full items-start gap-5 px-4 py-6 text-left transition",
-                  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#b7b86b]",
-                  isOpen ? "text-[#b7b86b]" : "text-white",
+                  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-brand-accent",
+                  isOpen ? "text-brand-accent" : "text-white",
                 ].join(" ")}
               >
                 {iconUrl && (

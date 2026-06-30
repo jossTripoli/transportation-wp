@@ -14,7 +14,7 @@ export default function CtaButtons({
       <a
         href={primaryCta.href}
         data-cta="get-quote"
-        className="inline-flex min-h-12 min-w-36 items-center justify-center rounded-full bg-[#b7b86b] px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#cbcc7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#cbcc7a]"
+        className="inline-flex min-h-12 min-w-36 items-center justify-center rounded-full bg-brand-accent px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#cbcc7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#cbcc7a]"
       >
         {primaryCta.label}
       </a>

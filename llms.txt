@@ -1,0 +1,34 @@
+# ABC Transportation
+
+> ABC Transportation is a transportation service website built with a headless WordPress CMS and an Astro/React frontend.
+
+## Website
+
+- Homepage: https://your-production-domain.com/
+
+## About this site
+
+This site presents transportation service information including driver clearances, real-time GPS tracking, vehicle maintenance, wheelchair-accessible vehicles, easy booking, customer support, certified drivers, and service accountability.
+
+## Key sections
+
+- Experience
+- We Care
+- Safety
+
+## Calls to action
+
+- Get a Quote
+- Book Online
+
+## Technical implementation
+
+- Frontend: Astro, React, TypeScript, Tailwind CSS
+- CMS: Headless WordPress
+- Custom content editing: Advanced Custom Fields Pro
+- Data API: WPGraphQL and WPGraphQL for ACF
+- Deployment: Vercel
+
+## Content editing
+
+Text, icons, images, category tabs, subcategory content, and CTA links are editable from WordPress through ACF fields.

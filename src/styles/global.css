@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: "Libre Baskerville", Georgia, serif;
+  --font-sans: "Euclid Circular B", Arial, sans-serif;
+  --color-brand-primary: #000000;
+  --color-brand-secondary: #FFFFFF;
+  --color-brand-accent: #a7a86e;
+}
+
 @font-face {
   font-family: "Euclid Circular B";
   src: url("/fonts/EuclidCircularB/Euclid-Circular-B-Light.woff2")
@@ -52,11 +60,6 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-
-:root {
-  --font-serif: "Libre Baskerville", Georgia, serif;
-  --font-sans: "Euclid Circular B", Arial, sans-serif;
 }
 
 html {

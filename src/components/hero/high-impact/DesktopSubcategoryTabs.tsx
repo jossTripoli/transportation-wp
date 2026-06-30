@@ -25,11 +25,11 @@ export default function DesktopSubcategoryTabs({
             aria-pressed={isActive}
             onClick={() => onSubcategoryClick(index)}
             className={[
-              "flex min-h-16 w-full items-center gap-5 border-b border-neutral-800 px-5 text-left transition duration-200",
-              "focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#b7b86b]",
+              "flex min-h-16 cursor-pointer w-full items-center gap-5 border-b border-neutral-800 px-5 text-left transition duration-200",
+              "focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-brand-accent",
               isActive
-                ? "bg-neutral-900 text-[#b7b86b]"
-                : "bg-transparent text-white hover:bg-neutral-900 hover:text-[#b7b86b]",
+                ? "bg-neutral-900 text-brand-accent"
+                : "bg-transparent text-white hover:bg-neutral-900 hover:text-brand-accent",
             ].join(" ")}
           >
             {iconUrl && (

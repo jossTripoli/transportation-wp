@@ -13,7 +13,7 @@ export default function HeroHeading({ category }: HeroHeadingProps) {
       >
         <span className="block">{category.headingTop}</span>
 
-        <span className="mb-1 -mt-1 block font-serif text-4xl font-normal italic normal-case leading-normal tracking-normal text-[#b7b86b] sm:text-5xl">
+        <span className="mb-1 -mt-1 block font-serif text-4xl font-normal italic normal-case leading-normal tracking-normal text-brand-accent sm:text-5xl">
           {category.headingAccent}
         </span>
 
